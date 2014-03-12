@@ -1,0 +1,24 @@
+﻿@using Top.Api.Domain
+@using print.Models.BLL;
+@{
+    ViewBag.Title = "printTrade";
+    string sessionKey = Request.Params["top_session"];
+    int tid = int.Parse(Request.Params["tid"]);
+    Trade trade = new Trade();
+    if(tid>0)
+    {
+    trade = TradeUtilizer.GetTrade(tid, sessionKey);
+    }
+    else 
+    {
+        trade.BuyerNick = "test";
+        trade.ReceiverMobile = "13888880922";
+        trade.ReceiverAddress = "杭州大是大非地方";
+    }
+}
+<html>
+<body onload="window.print()">
+<p>@trade.ReceiverAddress</p>
+<p>@trade.ReceiverMobile</p>
+</body></html>
+

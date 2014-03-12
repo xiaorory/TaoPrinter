@@ -1,0 +1,48 @@
+﻿@using Top.Api.Domain
+@using print.Models.BLL;
+@{
+    ViewBag.Title = "Index";
+    string sessionKey = Request.Params["top_session"];
+}
+<h2>
+    Index</h2>
+@if (!string.IsNullOrEmpty(sessionKey))
+{
+    string error;
+    List<Trade> trades = TradeUtilizer.GetUndeliveredTrades(sessionKey, out error);
+    if (trades.Count > 0)
+    {
+        foreach (Trade trade in trades)
+        {
+    <ul>
+        <li>@trade.Tid</li><li>@trade.ReceiverMobile</li><li>@trade.BuyerNick</li>
+        <li><a href='@string.Format("../Trade/printTrade?tid={0}&sessionKey={1}", trade.Tid, sessionKey)' target="_blank">
+            print</a></li></ul>
+        }
+    }
+    else
+    {
+        if (string.IsNullOrEmpty(error))
+        {
+    <p>
+        你没有未发货的订单</p>
+        }
+        else
+        {
+    <p>@error</p>
+        }
+    }
+}
+else
+{
+    Trade trade = new Trade();
+    trade.BuyerNick = "test";
+    trade.ReceiverMobile = "13888880922";
+    trade.Tid = -1;
+    <ul>
+        <li>@trade.Tid</li><li>@trade.ReceiverMobile</li><li>@trade.BuyerNick</li>
+        <li><a href='@string.Format("/Trade/printTrade?tid={0}&sessionKey={1}", trade.Tid, sessionKey)' target="_blank">
+            print</a></li></ul>
+    <p>
+        No permission to access your trade list</p>
+}
