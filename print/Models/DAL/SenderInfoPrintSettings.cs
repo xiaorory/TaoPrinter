@@ -11,7 +11,7 @@ namespace print.Models.DAL
     {
         [Required]
         [Description("淘宝获取的卖家user_id")]
-        public int User_Id { get; set; }
+        public long User_Id { get; set; }
         [DefaultValue(true)]
         [Description("是否打印淘宝获取的卖家nick")]
         public bool printSender_Nick { get; set; }
