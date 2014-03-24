@@ -43,13 +43,51 @@ namespace print.Models.BLL
         }
 
         /// <summary>
-        /// 获取未发货的订单
+        /// 获取三个月之内未发货的订单
         /// </summary>
         /// <param name="sessionKey"></param>
         /// <param name="error">如果出错，则储存错误信息，否则为空。</param>
         /// <param name="trades">如果成功，返回未发货订单的list。否则为null</param>
         /// <returns>如果操作成功，则返回true。否则为false。</returns>
         public static bool GetUndeliveredTrades(string sessionKey,out string error,out List<Trade> trades)
+        {
+            return GetUndeliveredTrades(sessionKey, DateTime.Now.AddMonths(-3), DateTime.Now, out error, out trades);
+        }
+
+        /// <summary>
+        /// 获取三个月之内部分发货的订单
+        /// </summary>
+        /// <param name="sessionKey"></param>
+        /// <param name="error">如果出错，则储存错误信息，否则为空。</param>
+        /// <param name="trades">如果成功，返回未发货订单的list。否则为null</param>
+        /// <returns>如果操作成功，则返回true。否则为false。</returns>
+        public static bool GetConSignedTrades(string sessionKey, out string error, out List<Trade> trades)
+        {
+            return GetConSignedTrades(sessionKey, DateTime.Now.AddMonths(-3), DateTime.Now, out error, out trades);
+        }
+
+        /// <summary>
+        /// 获取三个月之内已发货但买家未确认收货的订单
+        /// </summary>
+        /// <param name="sessionKey"></param>
+        /// <param name="error">如果出错，则储存错误信息，否则为空。</param>
+        /// <param name="trades">如果成功，返回未发货订单的list。否则为null</param>
+        /// <returns>如果操作成功，则返回true。否则为false。</returns>
+        public static bool GetWaitConfirmTrades(string sessionKey, out string error, out List<Trade> trades)
+        {
+            return GetWaitConfirmTrades(sessionKey, DateTime.Now.AddMonths(-3), DateTime.Now, out error, out trades);
+        }
+
+       /// <summary>
+        /// 获取某个时间段内未发货的订单
+       /// </summary>
+       /// <param name="sessionKey"></param>
+        /// <param name="startDateTime">开始时间</param>
+       /// <param name="endDateTime">结束时间</param>
+        /// <param name="error">如果出错，则储存错误信息，否则为空。</param>
+        /// <param name="trades">如果成功，返回未发货订单的list。否则为null</param>
+        /// <returns>如果操作成功，则返回true。否则为false。</returns>
+        public static bool GetUndeliveredTrades(string sessionKey,DateTime startDateTime,DateTime endDateTime, out string error, out List<Trade> trades)
         {
             bool isSuccess = false;
             error = string.Empty;
@@ -60,7 +98,8 @@ namespace print.Models.BLL
                 TradesSoldGetRequest req = new TradesSoldGetRequest();
                 req.Fields = "tid,buyer_nick,receiver_state,receiver_city,receiver_address,receiver_mobile";
                 req.Status = TradeStatus.WAIT_SELLER_SEND_GOODS;
-                req.StartCreated = DateTime.Now.AddMonths(-3);
+                req.StartCreated = startDateTime;
+                req.EndCreated = endDateTime;
                 req.EndCreated = DateTime.Now;
                 TradesSoldGetResponse rsp = client.Execute(req, sessionKey);
                 trades = rsp.Trades;
@@ -74,13 +113,15 @@ namespace print.Models.BLL
         }
 
         /// <summary>
-        /// 获取部分发货的订单
+        /// 获取某个时间段内部分发货的订单
         /// </summary>
         /// <param name="sessionKey"></param>
+        /// <param name="startDateTime">开始时间</param>
+        /// <param name="endDateTime">结束时间</param>
         /// <param name="error">如果出错，则储存错误信息，否则为空。</param>
         /// <param name="trades">如果成功，返回未发货订单的list。否则为null</param>
         /// <returns>如果操作成功，则返回true。否则为false。</returns>
-        public static bool GetConSignedTrades(string sessionKey, out string error, out List<Trade> trades)
+        public static bool GetConSignedTrades(string sessionKey, DateTime startDateTime, DateTime endDateTime, out string error, out List<Trade> trades)
         {
             bool isSuccess = false;
             error = string.Empty;
@@ -91,7 +132,8 @@ namespace print.Models.BLL
                 TradesSoldGetRequest req = new TradesSoldGetRequest();
                 req.Fields = "tid,buyer_nick,receiver_state,receiver_city,receiver_address,receiver_mobile";
                 req.Status = TradeStatus.SELLER_CONSIGNED_PART;
-                req.StartCreated = DateTime.Now.AddMonths(-3);
+                req.StartCreated = startDateTime;
+                req.EndCreated = endDateTime;
                 req.EndCreated = DateTime.Now;
                 TradesSoldGetResponse rsp = client.Execute(req, sessionKey);
                 trades = rsp.Trades;
@@ -105,13 +147,15 @@ namespace print.Models.BLL
         }
 
         /// <summary>
-        /// 获取已发货但买家未确认收货的订单
+        /// 获取某个时间段内已发货但买家未确认收货的订单
         /// </summary>
         /// <param name="sessionKey"></param>
+        /// <param name="startDateTime">开始时间</param>
+        /// <param name="endDateTime">结束时间</param>
         /// <param name="error">如果出错，则储存错误信息，否则为空。</param>
         /// <param name="trades">如果成功，返回未发货订单的list。否则为null</param>
         /// <returns>如果操作成功，则返回true。否则为false。</returns>
-        public static bool GetWaitConfirmTrades(string sessionKey, out string error, out List<Trade> trades)
+        public static bool GetWaitConfirmTrades(string sessionKey, DateTime startDateTime, DateTime endDateTime, out string error, out List<Trade> trades)
         {
             bool isSuccess = false;
             error = string.Empty;
@@ -122,7 +166,8 @@ namespace print.Models.BLL
                 TradesSoldGetRequest req = new TradesSoldGetRequest();
                 req.Fields = "tid,buyer_nick,receiver_state,receiver_city,receiver_address,receiver_mobile";
                 req.Status = TradeStatus.WAIT_BUYER_CONFIRM_GOODS;
-                req.StartCreated = DateTime.Now.AddMonths(-3);
+                req.StartCreated = startDateTime;
+                req.EndCreated = endDateTime;
                 req.EndCreated = DateTime.Now;
                 TradesSoldGetResponse rsp = client.Execute(req, sessionKey);
                 trades = rsp.Trades;
@@ -134,6 +179,7 @@ namespace print.Models.BLL
             }
             return isSuccess;
         }
+
        
     }
 }

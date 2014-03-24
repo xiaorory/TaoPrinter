@@ -34,6 +34,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.WebPages" />
     <Reference Include="System.Web.Helpers" />
@@ -68,6 +74,11 @@
     </Compile>
     <Compile Include="Models\BLL\TradeUtilizer.cs" />
     <Compile Include="Models\Common\Constants.cs" />
+    <Compile Include="Models\DAL\ReceiverInfoPrintSettings.cs" />
+    <Compile Include="Models\DAL\Sender.cs" />
+    <Compile Include="Models\DAL\SenderContext.cs" />
+    <Compile Include="Models\DAL\SenderInfoPrintSettings.cs" />
+    <Compile Include="Models\DAL\ShipmentOrderPrintSettings.cs" />
     <Compile Include="Models\DAL\TradeStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -121,7 +132,9 @@
   <ItemGroup>
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Trade\PrintTrade.cshtml" />
   </ItemGroup>
