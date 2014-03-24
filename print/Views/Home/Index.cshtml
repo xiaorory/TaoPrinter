@@ -9,8 +9,9 @@
 @if (!string.IsNullOrEmpty(sessionKey))
 {
     string error;
-    List<Trade> trades = TradeUtilizer.GetUndeliveredTrades(sessionKey, out error);
-    if (trades.Count > 0)
+    List<Trade> trades;
+    TradeUtilizer.GetUndeliveredTrades(sessionKey, out error, out trades);
+    if (trades != null && trades.Count > 0)
     {
         foreach (Trade trade in trades)
         {
@@ -22,7 +23,7 @@
     }
     else
     {
-        if (string.IsNullOrEmpty(error))
+        if (trades.Count == 0 && string.IsNullOrEmpty(error))
         {
     <p>
         你没有未发货的订单</p>

@@ -68,6 +68,7 @@
     </Compile>
     <Compile Include="Models\BLL\TradeUtilizer.cs" />
     <Compile Include="Models\Common\Constants.cs" />
+    <Compile Include="Models\DAL\TradeStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -120,9 +121,7 @@
   <ItemGroup>
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\DAL\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Views\Trade\PrintTrade.cshtml" />
   </ItemGroup>
