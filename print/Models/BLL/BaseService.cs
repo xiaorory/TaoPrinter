@@ -8,7 +8,7 @@ using print.Models.DAL;
 
 namespace print.Models.BLL
 {
-    public abstract class BaseService<T> : IService<T> where T : class
+    public class BaseService<T> : IService<T> where T : BaseObject
     {
         /// <summary>
         /// 私有字段，保存错误信息

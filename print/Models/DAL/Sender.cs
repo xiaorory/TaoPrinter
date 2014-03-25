@@ -7,11 +7,8 @@ using System.ComponentModel;
 
 namespace print.Models.DAL
 {
-    public class Sender
+    public class Sender : BaseObject
     {
-        [Required]
-        [Description("淘宝获取的卖家user_id")]
-        public long User_Id { get; set; }
         [Required]
         [Description("淘宝获取的卖家nick")]
         public string Sender_Nick { get; set; }

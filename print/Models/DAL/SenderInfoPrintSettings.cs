@@ -7,11 +7,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace print.Models.DAL
 {
-    public class SenderInfoPrintSettings
+    public class SenderInfoPrintSettings : BaseObject
     {
-        [Required]
-        [Description("淘宝获取的卖家user_id")]
-        public long User_Id { get; set; }
         [DefaultValue(true)]
         [Description("是否打印淘宝获取的卖家nick")]
         public bool printSender_Nick { get; set; }

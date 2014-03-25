@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Linq.Expressions;
+using print.Models.DAL;
 
 namespace print.Models.BLL
 {
-    interface IService<T> where T : class
-    { 
+    public interface IService<T> where T : BaseObject
+    {
         /// <summary>
         /// 按照条件查询数据库获取对象列表
         /// </summary>

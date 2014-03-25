@@ -1,0 +1,130 @@
+﻿@model print.Models.DAL.ShipmentOrderPrintSettings
+
+@{
+    ViewBag.Title = "ChangeShipmentOrderPrintSettings";
+}
+
+<h2>ChangeShipmentOrderPrintSettings</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>ShipmentOrderPrintSettings</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.User_Id)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.User_Id)
+            @Html.ValidationMessageFor(model => model.User_Id)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.printDeliveryDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.printDeliveryDate)
+            @Html.ValidationMessageFor(model => model.printDeliveryDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.printBuyerNick)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.printBuyerNick)
+            @Html.ValidationMessageFor(model => model.printBuyerNick)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.printBuyerComment)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.printBuyerComment)
+            @Html.ValidationMessageFor(model => model.printBuyerComment)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.printTradeId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.printTradeId)
+            @Html.ValidationMessageFor(model => model.printTradeId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.printItemId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.printItemId)
+            @Html.ValidationMessageFor(model => model.printItemId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.printItemName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.printItemName)
+            @Html.ValidationMessageFor(model => model.printItemName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.printItemQuantity)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.printItemQuantity)
+            @Html.ValidationMessageFor(model => model.printItemQuantity)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.printItemPrice)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.printItemPrice)
+            @Html.ValidationMessageFor(model => model.printItemPrice)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.printItemDiscount)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.printItemDiscount)
+            @Html.ValidationMessageFor(model => model.printItemDiscount)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.printTotalPrice)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.printTotalPrice)
+            @Html.ValidationMessageFor(model => model.printTotalPrice)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.title)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.title)
+            @Html.ValidationMessageFor(model => model.title)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.comment)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.comment)
+            @Html.ValidationMessageFor(model => model.comment)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

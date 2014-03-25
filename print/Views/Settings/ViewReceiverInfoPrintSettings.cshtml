@@ -1,0 +1,37 @@
+﻿@model print.Models.DAL.ReceiverInfoPrintSettings
+
+@{
+    ViewBag.Title = "ViewReceiverInfoPrintSettings";
+}
+
+<h2>ViewReceiverInfoPrintSettings</h2>
+
+<fieldset>
+    <legend>ReceiverInfoPrintSettings</legend>
+
+    <div class="display-label">User_Id</div>
+    <div class="display-field">@Model.User_Id</div>
+
+    <div class="display-label">printSender_Nick</div>
+    <div class="display-field">@Model.printSender_Nick</div>
+
+    <div class="display-label">printSender_Name</div>
+    <div class="display-field">@Model.printSender_Name</div>
+
+    <div class="display-label">printSender_Phone</div>
+    <div class="display-field">@Model.printSender_Phone</div>
+
+    <div class="display-label">printSender_Mobile</div>
+    <div class="display-field">@Model.printSender_Mobile</div>
+
+    <div class="display-label">printSender_Address</div>
+    <div class="display-field">@Model.printSender_Address</div>
+
+    <div class="display-label">printSender_Zipcode</div>
+    <div class="display-field">@Model.printSender_Zipcode</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+

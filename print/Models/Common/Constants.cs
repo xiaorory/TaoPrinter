@@ -7,6 +7,9 @@ namespace print.Models.Common
 {
     public class Constants
     {
+        /// <summary>
+        /// 是否是在沙盒中测试
+        /// </summary>
         public static bool IsSandBox
         {
             get{
@@ -17,6 +20,9 @@ namespace print.Models.Common
                 }
         }
 
+        /// <summary>
+        /// 淘宝调用api的url链接地址
+        /// </summary>
         public static string ApiUrl
         {
             get
@@ -26,6 +32,9 @@ namespace print.Models.Common
             }
         }
 
+        /// <summary>
+        /// 淘宝获取授权的链接地址
+        /// </summary>
         public static string AuthUrl
         {
             get
@@ -35,6 +44,9 @@ namespace print.Models.Common
             }
         }
 
+        /// <summary>
+        /// 淘宝应用的app key
+        /// </summary>
         public static string AppKey
         {
             get
@@ -44,12 +56,48 @@ namespace print.Models.Common
             }
         }
 
+        /// <summary>
+        /// 淘宝应用的加密密钥
+        /// </summary>
         public static string AppSecret
         {
             get
             {
                 if (IsSandBox) { return SandBoxConstants.appsecret; }
                 else { return ZhengshiConstants.appsecret; }
+            }
+        }
+
+        /// <summary>
+        /// 存储的Session中SessionKey的变量名
+        /// </summary>
+        public static string SessionKey
+        {
+            get
+            {
+                return "SessionKey";
+            }
+        }
+
+        /// <summary>
+        ///  存储的Session中User_Id的变量名
+        /// </summary>
+        public static string User_Id
+        {
+            get
+            {
+                return "User_Id";
+            }
+        }
+
+        /// <summary>
+        /// 存储的Session中Sender_Nick的变量名
+        /// </summary>
+        public static string Sender_Nick
+        {
+            get
+            {
+                return "Sender_Nick";
             }
         }
     }

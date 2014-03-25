@@ -1,0 +1,138 @@
+﻿@model print.Models.DAL.Sender
+
+@{
+    ViewBag.Title = "ChangeSenderSettings";
+}
+
+<h2>ChangeSenderSettings</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm("ChangeSenderSettings","Settings",FormMethod.Post)) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Sender</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.User_Id)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.User_Id)
+            @Html.ValidationMessageFor(model => model.User_Id)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Sender_Nick)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Sender_Nick)
+            @Html.ValidationMessageFor(model => model.Sender_Nick)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Sender_Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Sender_Name)
+            @Html.ValidationMessageFor(model => model.Sender_Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Sender_Signature)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Sender_Signature)
+            @Html.ValidationMessageFor(model => model.Sender_Signature)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Sender_Phone)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Sender_Phone)
+            @Html.ValidationMessageFor(model => model.Sender_Phone)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Sender_Mobile)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Sender_Mobile)
+            @Html.ValidationMessageFor(model => model.Sender_Mobile)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Sender_Company)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Sender_Company)
+            @Html.ValidationMessageFor(model => model.Sender_Company)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Sender_ShopName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Sender_ShopName)
+            @Html.ValidationMessageFor(model => model.Sender_ShopName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Sender_Address)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Sender_Address)
+            @Html.ValidationMessageFor(model => model.Sender_Address)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Sender_Zipcode)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Sender_Zipcode)
+            @Html.ValidationMessageFor(model => model.Sender_Zipcode)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Sender_ShopUrl)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Sender_ShopUrl)
+            @Html.ValidationMessageFor(model => model.Sender_ShopUrl)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Sender_Comment1)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Sender_Comment1)
+            @Html.ValidationMessageFor(model => model.Sender_Comment1)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Sender_Comment2)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Sender_Comment2)
+            @Html.ValidationMessageFor(model => model.Sender_Comment2)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MembershipExpireDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MembershipExpireDate)
+            @Html.ValidationMessageFor(model => model.MembershipExpireDate)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

@@ -1,0 +1,55 @@
+﻿@model print.Models.DAL.SenderInfoPrintSettings
+
+@{
+    ViewBag.Title = "ViewSenderInfoPrintSettings";
+}
+
+<h2>ViewSenderInfoPrintSettings</h2>
+
+<fieldset>
+    <legend>SenderInfoPrintSettings</legend>
+
+    <div class="display-label">User_Id</div>
+    <div class="display-field">@Model.User_Id</div>
+
+    <div class="display-label">printSender_Nick</div>
+    <div class="display-field">@Model.printSender_Nick</div>
+
+    <div class="display-label">printSender_Name</div>
+    <div class="display-field">@Model.printSender_Name</div>
+
+    <div class="display-label">printSender_Signature</div>
+    <div class="display-field">@Model.printSender_Signature</div>
+
+    <div class="display-label">printSender_Phone</div>
+    <div class="display-field">@Model.printSender_Phone</div>
+
+    <div class="display-label">printSender_Mobile</div>
+    <div class="display-field">@Model.printSender_Mobile</div>
+
+    <div class="display-label">printSender_Company</div>
+    <div class="display-field">@Model.printSender_Company</div>
+
+    <div class="display-label">printSender_ShopName</div>
+    <div class="display-field">@Model.printSender_ShopName</div>
+
+    <div class="display-label">printSender_Address</div>
+    <div class="display-field">@Model.printSender_Address</div>
+
+    <div class="display-label">printSender_Zipcode</div>
+    <div class="display-field">@Model.printSender_Zipcode</div>
+
+    <div class="display-label">printSender_ShopUrl</div>
+    <div class="display-field">@Model.printSender_ShopUrl</div>
+
+    <div class="display-label">printSender_Comment1</div>
+    <div class="display-field">@Model.printSender_Comment1</div>
+
+    <div class="display-label">printSender_Comment2</div>
+    <div class="display-field">@Model.printSender_Comment2</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+

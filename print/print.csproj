@@ -68,20 +68,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PrintController.cs" />
     <Compile Include="Controllers\SettingsController.cs" />
-    <Compile Include="Controllers\TradeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BLL\BaseService.cs" />
     <Compile Include="Models\BLL\IService.cs" />
+    <Compile Include="Models\BLL\ShipmentOrderPrintInfo.cs" />
+    <Compile Include="Models\BLL\TradePrintInfo.cs" />
     <Compile Include="Models\BLL\ReceiverInfoPrintSettingsService.cs" />
     <Compile Include="Models\BLL\SenderInfoPrintSettingsService.cs" />
     <Compile Include="Models\BLL\SenderService.cs" />
+    <Compile Include="Models\BLL\ServiceUtilizer.cs" />
     <Compile Include="Models\BLL\ShipmentOrderPrintSettingsService.cs" />
     <Compile Include="Models\BLL\TradeUtilizer.cs" />
     <Compile Include="Models\BLL\UserUtilizer.cs" />
     <Compile Include="Models\Common\Constants.cs" />
+    <Compile Include="Models\DAL\BaseObject.cs" />
     <Compile Include="Models\DAL\ReceiverInfoPrintSettings.cs" />
     <Compile Include="Models\DAL\Sender.cs" />
     <Compile Include="Models\DAL\SenderContext.cs" />
@@ -150,10 +154,40 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Trade\PrintTrade.cshtml" />
+    <Content Include="Views\Settings\ViewSenderSettings.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Settings\Index.cshtml" />
+    <Content Include="Views\Settings\ChangeSenderSettings.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Settings\ViewSenderInfoPrintSettings.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Settings\ChangeSenderInfoPrintSettings.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Settings\ViewReceiverInfoPrintSettings.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Settings\ChangeReceiverInfoPrintSettings.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Settings\ViewShipmentOrderPrintSettings.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Settings\ChangeShipmentOrderPrintSettings.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Print\Preview.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Print\Print.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Print\ShipmentOrderPreview.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Print\ShipmentOrderPrint.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

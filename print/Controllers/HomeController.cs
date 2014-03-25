@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using print.Models.BLL;
 using print.Models.DAL;
+using print.Models.Common;
 
 namespace print.Controllers
 {
@@ -20,9 +21,9 @@ namespace print.Controllers
             Sender sender;
             if (!string.IsNullOrEmpty(sessionKey) && UserUtilizer.LoadSender(sessionKey, out error, out sender))
             {
-                Session["SessionKey"] = sessionKey;
-                Session["User_Id"] = sender.User_Id;
-                Session["Sender_Nick"] = sender.Sender_Nick;
+                Session[Constants.SessionKey] = sessionKey;
+                Session[Constants.User_Id] = sender.User_Id;
+                Session[Constants.Sender_Nick] = sender.Sender_Nick;
                 return View();
             }
             else

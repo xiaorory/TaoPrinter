@@ -1,0 +1,55 @@
+﻿@model print.Models.DAL.ShipmentOrderPrintSettings
+
+@{
+    ViewBag.Title = "ViewShipmentOrderPrintSettings";
+}
+
+<h2>ViewShipmentOrderPrintSettings</h2>
+
+<fieldset>
+    <legend>ShipmentOrderPrintSettings</legend>
+
+    <div class="display-label">User_Id</div>
+    <div class="display-field">@Model.User_Id</div>
+
+    <div class="display-label">printDeliveryDate</div>
+    <div class="display-field">@Model.printDeliveryDate</div>
+
+    <div class="display-label">printBuyerNick</div>
+    <div class="display-field">@Model.printBuyerNick</div>
+
+    <div class="display-label">printBuyerComment</div>
+    <div class="display-field">@Model.printBuyerComment</div>
+
+    <div class="display-label">printTradeId</div>
+    <div class="display-field">@Model.printTradeId</div>
+
+    <div class="display-label">printItemId</div>
+    <div class="display-field">@Model.printItemId</div>
+
+    <div class="display-label">printItemName</div>
+    <div class="display-field">@Model.printItemName</div>
+
+    <div class="display-label">printItemQuantity</div>
+    <div class="display-field">@Model.printItemQuantity</div>
+
+    <div class="display-label">printItemPrice</div>
+    <div class="display-field">@Model.printItemPrice</div>
+
+    <div class="display-label">printItemDiscount</div>
+    <div class="display-field">@Model.printItemDiscount</div>
+
+    <div class="display-label">printTotalPrice</div>
+    <div class="display-field">@Model.printTotalPrice</div>
+
+    <div class="display-label">title</div>
+    <div class="display-field">@Model.title</div>
+
+    <div class="display-label">comment</div>
+    <div class="display-field">@Model.comment</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+

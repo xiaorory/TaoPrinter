@@ -1,0 +1,58 @@
+﻿@model print.Models.DAL.Sender
+
+@{
+    ViewBag.Title = "ViewSenderSettings";
+}
+
+<h2>ViewSenderSettings</h2>
+
+<fieldset>
+    <legend>Sender</legend>
+
+    <div class="display-label">User_Id</div>
+    <div class="display-field">@Model.User_Id</div>
+
+    <div class="display-label">Sender_Nick</div>
+    <div class="display-field">@Model.Sender_Nick</div>
+
+    <div class="display-label">Sender_Name</div>
+    <div class="display-field">@Model.Sender_Name</div>
+
+    <div class="display-label">Sender_Signature</div>
+    <div class="display-field">@Model.Sender_Signature</div>
+
+    <div class="display-label">Sender_Phone</div>
+    <div class="display-field">@Model.Sender_Phone</div>
+
+    <div class="display-label">Sender_Mobile</div>
+    <div class="display-field">@Model.Sender_Mobile</div>
+
+    <div class="display-label">Sender_Company</div>
+    <div class="display-field">@Model.Sender_Company</div>
+
+    <div class="display-label">Sender_ShopName</div>
+    <div class="display-field">@Model.Sender_ShopName</div>
+
+    <div class="display-label">Sender_Address</div>
+    <div class="display-field">@Model.Sender_Address</div>
+
+    <div class="display-label">Sender_Zipcode</div>
+    <div class="display-field">@Model.Sender_Zipcode</div>
+
+    <div class="display-label">Sender_ShopUrl</div>
+    <div class="display-field">@Model.Sender_ShopUrl</div>
+
+    <div class="display-label">Sender_Comment1</div>
+    <div class="display-field">@Model.Sender_Comment1</div>
+
+    <div class="display-label">Sender_Comment2</div>
+    <div class="display-field">@Model.Sender_Comment2</div>
+
+    <div class="display-label">MembershipExpireDate</div>
+    <div class="display-field">@String.Format("{0:g}", Model.MembershipExpireDate)</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+

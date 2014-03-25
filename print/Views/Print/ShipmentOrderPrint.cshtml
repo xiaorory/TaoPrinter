@@ -1,0 +1,14 @@
+﻿@model print.Models.BLL.ShipmentOrderPrintInfo
+@{
+    ViewBag.Title = "ShipmentOrderPrint";
+}
+<h2>
+    ShipmentOrderPrint</h2>
+<fieldset>
+    <legend>ShipmentOrderPrintInfo</legend>
+</fieldset>
+<p>
+    @Model.tradeInfo.DiscountFee
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

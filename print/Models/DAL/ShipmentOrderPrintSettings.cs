@@ -7,11 +7,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace print.Models.DAL
 {
-    public class ShipmentOrderPrintSettings
+    public class ShipmentOrderPrintSettings : BaseObject
     {
-        [Required]
-        [Description("淘宝获取的卖家user_id")]
-        public long User_Id { get; set; }
         [DefaultValue(true)]
         [DisplayName("是否打印发货日期")]
         public bool printDeliveryDate { get; set; }
