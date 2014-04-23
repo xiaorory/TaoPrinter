@@ -1,13 +1,14 @@
 ﻿@using Top.Api.Domain
-@using print.Models.BLL;
+@using print.Models.BLL
 @{
     ViewBag.Title = "Index";
     string sessionKey = Request.Params["top_session"];
+
 }
 @if (!string.IsNullOrEmpty(sessionKey))
 {
     List<Trade> trades;
-    if (TradeUtilizer.GetTrades(sessionKey,print.Models.DAL.TradeStatus.WAIT_SELLER_SEND_GOODS, out trades))
+    if (TradeUtilizer.GetTrades(sessionKey, print.Models.DAL.TradeStatus.WAIT_SELLER_SEND_GOODS, out trades))
     {
         if (trades != null && trades.Count > 0)
         {
@@ -39,10 +40,125 @@ else
     trade.BuyerNick = "test";
     trade.ReceiverMobile = "13888880922";
     trade.Tid = -1;
+    
     <ul>
-        <li>@trade.Tid</li><li>@trade.ReceiverMobile</li><li>@trade.BuyerNick</li>
+        <li>@trade.Tid</li>
+        <li>@trade.ReceiverMobile</li>
+        <li>@trade.BuyerNick</li>
         <li><a href='@string.Format("/Trade/printTrade?tid={0}&sessionKey={1}", trade.Tid, sessionKey)' target="_blank">
-            print</a></li></ul>
+            print</a></li>
+    </ul>
     <p>
         No permission to access your trade list</p>
 }
+<div id="container">
+    <div id="header">
+        <div id="logo">
+            <h1>
+                <a href="#">打打</a></h1>
+        </div>
+    </div>
+    <!-- end #header -->
+    <div id="menu">
+        <ul>
+            <li><a href="#">批量打印</a></li>
+            <li><a href="#">快递模板</a></li>
+            <li><a href="#">发货设置</a></li>
+        </ul>
+    </div>
+    <!-- end #menu -->
+    <div id="content">
+        <div id="order_filter">
+            <input class="func_button" type="button" id="printNow" value="现在打印" />&nbsp;
+            <input class="func_button" type="button" id="sync" value="同步订单" />
+            <span>&nbsp状态</span>
+            <select id="order_states">
+                <option value="1">买家已付款</option>
+                <option value="1">等待买家付款</option>
+                <option value="1">卖家已发货</option>
+                <option value="1">交易成功</option>
+                <option value="1">所有订单</option>
+            </select>
+            <span>日期</span><input name="" type="text" id="date_start" />
+            <span>至</span><input name="" type="text" id="date_end" />
+            <a id="more" href="#" onclick="clickMore()">更多选项</a>
+            <input class="func_button" type="button" id="print" value="查询" />
+        </div>
+        <!-- end #order_filter -->
+        <div id="filter_detail">
+            <span>&nbsp;&nbsp;&nbsp;订单编号 </span>
+            <input name="" type="text" id="order_number" />
+            <span>买家昵称 </span>
+            <input name="" type="text" id="buyer_name" />
+            <span>宝贝名称 </span>
+            <input name="" type="text" id="goods_name" />
+            <span>宝贝型号 </span>
+            <input name="" type="text" id="goods_type" />
+        </div>
+        @{
+            Trade tradee = new Trade();
+            tradee.BuyerNick = "testsadfds";
+            tradee.ReceiverMobile = "13888880示138示型号880示138示型880示138示型880示138示型880示138示型880示138示型880示138示型吗";
+            tradee.Tid = -1;
+        }
+        <div id="order_list">
+            <table border="1" id="order_list_table">
+                <tr>
+                    <th>
+                        <input type="checkbox" id="sel_all" />
+                    </th>
+                    <th>
+                        商品名称
+                    </th>
+                    <th>
+                        付款时间
+                    </th>
+                    <th>
+                        买家
+                    </th>
+                    <th>
+                        收货人
+                    </th>
+                    <th>
+                        收货地址
+                    </th>
+                    <th>
+                        联系电话
+                    </th>
+                    <th>
+                        订单状态
+                    </th>
+                    <th>
+                        备注
+                    </th>
+                    <th>
+                        操作
+                    </th>
+                </tr>
+                <tr class="row">
+                    <td>
+                        <input type="checkbox" class="sel_checkbox" />
+                    </td>
+                    <td>@tradee.ReceiverMobile
+                    </td>
+                    <td>@tradee.ReceiverMobile
+                    </td>
+                    <td>@tradee.ReceiverMobile
+                    </td>
+                    <td>@tradee.ReceiverMobile
+                    </td>
+                    <td>@tradee.ReceiverMobile
+                    </td>
+                    <td>@tradee.ReceiverMobile
+                    </td>
+                    <td>@tradee.ReceiverMobile
+                    </td>
+                    <td>@tradee.ReceiverMobile
+                    </td>
+                    <td>@tradee.ReceiverMobile
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!-- “order_list” -->
+    </div>

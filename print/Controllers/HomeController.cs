@@ -28,7 +28,8 @@ namespace print.Controllers
             }
             else
             {
-                return Content("获取用户信息失败");
+                //return Content("获取用户信息失败");
+                return View();
             }
         }
 
